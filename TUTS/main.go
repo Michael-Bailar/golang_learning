@@ -5,10 +5,19 @@ import (
 )
 
 func main() {
-	var (
-		name  = "John"
-		email = "john@test.com"
-		age   = 14
-	)
-	fmt.Printf("My first name is %s, and my last name is %s", firstname, lastname)
+	fmt.Println("Hey")
+	random()
+}
+
+func random() {
+
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Printf("The function recovered from panic with a reason: %s", r)
+		}
+	}()
+
+	fmt.Println("1")
+	panic("Some Reason")
+	fmt.Println("2")
 }
